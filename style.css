@@ -1,0 +1,121 @@
+/* style.css */
+
+ /* D'abord, une petite astuce de pro pour que les tailles soient plus faciles à
+gérer */
+ * {
+     box-sizing: border-box;
+ }
+
+ body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0; /* On supprime les marges par défaut du navigateur */
+    background-color: #f0f2f5; /* Un fond gris très doux */
+    color: #333; /* Un texte gris foncé, plus agréable que le noir pur */
+ }
+ header,
+ footer {
+    background-color: #000000; /* Un bleu nuit sobre */
+    color: white;
+    text-align: center;
+    padding: 25px 0; /* 25px en haut/bas, 0 à gauche/droite */
+ }
+
+ header h1 {
+    margin: 0;
+    font-size: 2.5em; /* 'em' est une unité relative à la taille de police parente
+*/
+ }
+
+ header p {
+    margin: 5px 0 0 0;
+    color: #255678; /* Un gris plus clair pour le sous-titre */
+ }
+ main {
+    max-width: 900px; /* Le contenu ne dépassera jamais 900px de large */
+     margin: 40px auto; /* 40px de marge en haut/bas, et 'auto' à gauche/droite pour
+centrer ! */
+    padding: 0 20px; /* Un peu d'air sur les côtés sur petits écrans */
+ }
+ section {
+    background-color: rgb(34, 229, 226);
+     margin-bottom: 30px; /* Espace entre les sections */
+     padding: 30px;
+    border-radius: 8px; /* Des coins joliment arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Une ombre subtile */
+ }
+
+ section h2 {
+    color: #2980b9; /* Un bleu vif pour les titres de section */
+    margin-top: 0;
+  }
+/* On cible la section spécifique avec son ID (le # est pour les ID) */
+ #a-propos {
+    display: flex; /* Active le mode Flexbox ! */
+    align-items: center; /* Aligne les éléments verticalement au centre */
+    gap: 30px; /* Crée un espace de 30px entre l'image et le texte */
+ }
+
+ #a-propos img {
+    border-radius: 50%; /* Pour une photo de profil ronde ! */
+ }
+ .cartes-projets-conteneur {
+    display: flex;
+    justify-content: space-between; /* Espace les cartes uniformément */
+    gap: 20px; /* Espace entre les cartes */
+ }
+
+ /* Le sélecteur .carte cible tous les éléments avec la classe "carte" */
+ .carte {
+    background-color: #1aa1d2;
+    border: 1px solid #8e29d2;
+    padding: 20px;
+    border-radius: 6px;
+     width: 32%; /* Environ un tiers de la largeur pour chaque carte */
+ }
+
+ .carte h3 {
+    margin-top: 0;
+ }
+ /* =================================== */
+ /* RESPONSIVE DESIGN */
+ /* =================================== */
+
+ @media (max-width: 768px) {
+    /* Les règles à l'intérieur de ces accolades
+       ne s'appliqueront QUE si la largeur de l'écran
+       est de 768 pixels OU MOINS. */
+ }
+ @media (max-width: 768px) {
+    /* Les règles à l'intérieur de ces accolades
+       ne s'appliqueront QUE si la largeur de l'écran
+       est de 768 pixels OU MOINS. */
+
+    /* Pour la section "À propos" */
+    #a-propos {
+       flex-direction: column; /* On change l'axe de Flexbox ! Au lieu de s'aligner
+en ligne, les éléments s'empilent en colonne. */
+       text-align: center; /* On centre le texte maintenant que l'image est audessus. */
+ }
+
+    /* Pour la section des projets */
+    .cartes-projets-conteneur {
+       flex-direction: column; /* On fait la même chose pour le conteneur des
+cartes. */
+ align-items: center; /* On centre les cartes horizontalement. */
+ }
+
+    .carte {
+       width: 90%; /* Au lieu de 32%, chaque carte prend maintenant 90% de la
+largeur disponible. */
+       margin-bottom: 20px; /* On ajoute une marge en bas car 'gap' ne s'applique
+plus de la même manière. */
+    }
+ }
+  .carte:hover {
+    transform: translateY(-5px); /* Fait "monter" la carte de 5 pixels */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Une ombre plus prononcée */
+ }
+ .carte {
+    /* ... tous les styles précédents de .carte ... */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+ }
